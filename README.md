@@ -1,6 +1,7 @@
 # Kaggle: [House Price Prediction](https://www.kaggle.com/c/house-prices-advanced-regression-techniques)  
-## Data Processing and Feature Extration Approchs  
-### **Data Processing 1:**  
+---
+# Data Processing and Feature Extration Approchs  
+## **Trial 1:**  
  - Droped ```'Id'```.
  - One hot encoded all none neumerical features.  
  - Replace all none neumerical features ```Nan``` with ```'None'``` and one hot encoded them.  
@@ -14,7 +15,7 @@
    - Outliers' effect the means greatly. 
  - Target collumn ```'SalePrice'``` is not in a normal disturbation. 
  - Data that are highly correlated have repeted impact on the model.  
-### **Data Processing 2:**  
+### **Trial 2:**  
  - One hot encoded all catergical features.  
  - Normoralized ```SalePrice``` distrubition to normal curve by taking.  
  ```python
@@ -28,7 +29,7 @@ train['SalePrice'] = np.exp(train['LogSalePrice'])
  - Reomved one feature from each set of features that have a corlation above 0.8, base on the disturbition graph.  
  ![](https://raw.githubusercontent.com/Beepbloop/KaggleHouse/master/NumericalDataDisturbitionGraph.png)The feature that have the highest corlation with ```'SalePrice'``` out of the two is removed.  
  - Fill all numerical feature Nan with 0.  
-### **Data Processing 3:**  
+### **Trial 3:**  
 *All creddit of this methods gose to [@Golden](https://www.kaggle.com/goldens) and her [notebook](https://www.kaggle.com/goldens/house-prices-on-the-top-with-a-simple-model)*  
  - Filled all numerical ```Nan``` with 0.  
  - Filled all categorical ```Nan``` with ```'None'```.  
@@ -38,9 +39,9 @@ train['SalePrice'] = np.exp(train['LogSalePrice'])
  ```
  - Normoralized ```SalePrice```.  
  - One hot encoded all catergical features.  
-
-## Model Approchs  
-### **Linear Regression:**  
+---
+# Model Approchs  
+## **Linear Regression:**  
  - Used hyperparameter tuning to tune a sklearn linear regression model. 
  - Used polynomial features to expand feature space.
  - Use Root Mean Square Error ([RMSE](https://en.wikipedia.org/wiki/Root-mean-square_deviation)) as lost function since it is what the data is evluated by.  
@@ -49,8 +50,9 @@ train['SalePrice'] = np.exp(train['LogSalePrice'])
  - Optominal Alpha is less then 1000.  
  - Scores: 
    - Datas from 1: **0.24922**.  
-   - Datas from 3: **0.31011**.  
-### **Neural Network:**  
+   - Datas from 3: **0.31011**.
+---
+## **Neural Network:**  
  - Implemented RMSE for both the default ```'SalePrice'``` and ```'LogSalePrice'```:  
  ```python
  def root_mean_squared_error(y_true, y_pred):
@@ -110,8 +112,9 @@ _________________________________________________________________
    - SGD did not converge under 10000 epochs.  
  - Combined Model:
    - Parameters: Defalut LeakyReLU, Adam ```learning_rate = 0.0001```, 3 layers of 521 neurons.
-   - Score: **0.21406**, some how a combenation of these has increased the score. 
-### Lasso Regression
+   - Score: **0.21406**, some how a combenation of these has increased the score.  
+---
+## Lasso Regression
 *This approch is build upon [@Golden](https://www.kaggle.com/goldens)'s [notebook](https://www.kaggle.com/goldens/house-prices-on-the-top-with-a-simple-model).*  
  - Used hyperparameter to turn a Lasso Regression model.  
  - Golden's Parameter.  
@@ -122,6 +125,7 @@ _________________________________________________________________
  Lasso(alpha = 0.0005, fit_intercept = True, normalize = False)
  ```
    - Score: **0.11744**.  
+---
 # Conclusion  
  - Neural Network is not an all-powerful solution.
  - Better data cleaning and feature engineering with a simple model could result in a much better model then neural networks can be. 
