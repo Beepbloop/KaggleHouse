@@ -1,6 +1,5 @@
-# Kaggle Competition: House Price Prediction
-[House Prices: Advanced Regression Techniques](https://www.kaggle.com/c/house-prices-advanced-regression-techniques)  
----
+# Kaggle Competition: [House Price Prediction](https://www.kaggle.com/c/house-prices-advanced-regression-techniques)  
+---  
 ## Data Processing and Feature Extration Approchs  
 ### **Data Processing 1:**  
  - Droped ```'Id'```
@@ -98,17 +97,29 @@ _________________________________________________________________
  - Optimizers:
    - Adam with increas / decrease learning rates
    - Default SGD
- - Datas:
-   - ```'LogSalePrice'``` as Y
 ### Result:  
 **Base Line Score: 0.21801**
  - Structurs：
    - Increasing model size and num of neurons resulted in the exact same score,
-   - Decreasing it result in decrease of loss
+   - Decreasing it result in sigenfigent score 
  - Activitation functions:
-   - Sigmoid did not converge with in 10000 epochs. 
+   - Sigmoid did not converge under 10000 epochs. 
    - Default LeakyReLU resulted in slightly better score: **0.21259**
-   - LeakyReLU with alpha = 0.5 performed less then default, scored: **0.21337**  
+   - LeakyReLU with ```alpha = 0.5``` performed less then default, scored: **0.21337**  
  - Optimizer:
- 
-   
+   - Most optomal Adam ```learning_rate = 0.0001```,scored of **0.21106**
+   - SGD did not converge under 10000 epochs.
+ - Combined Model:
+   - **Parameters:** Defalut LeakyReLU, Adam ```learning_rate = 0.0001```, 3 layers of 521 neurons.
+   - **Score:** 0.21406, some how a combenation of these has increased the score. 
+### Lasso Regression
+*This approch is build upon [@Golden](https://www.kaggle.com/goldens)'s [notebook](https://www.kaggle.com/goldens/house-prices-on-the-top-with-a-simple-model)*  
+ - Used hyperparameter to turn a Lasso Regression model
+ - Golden's Parameter
+### Result: 
+ - Golden's Score: **0.11888**
+ - Hyper tuned best paramete 
+ ```python
+ Lasso(alpha = 0.0005, fit_intercept = True, normalize = False)
+ ```
+   - Score: **0.11744**
