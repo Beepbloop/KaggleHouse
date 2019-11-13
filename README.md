@@ -1,10 +1,12 @@
-# Kaggle - [House Prices: Advanced Regression Techniques](https://www.kaggle.com/c/house-prices-advanced-regression-techniques)  
+# Kaggle Competition: House Price Prediction
+[House Prices: Advanced Regression Techniques](https://www.kaggle.com/c/house-prices-advanced-regression-techniques)  
 ---
 ## Data Processing and Feature Extration Approchs  
 ### **Data Processing 1:**  
+ - Droped ```'Id'```
  - One hot encoded all none neumerical features  
  - Included Nan in the encoding  
- - Filled all neumerical data Nans with means of the column  
+ - Filled all neumerical data ```Nan``` with means of the column  
  - Schewed Year data to be base on the minium of that column  
 ### **Problems:**  
  - Data contains outliers  
@@ -12,10 +14,10 @@
  - Fill numerical data with means is not a good approch because: 
    - Numerical that contains ```Nan``` usualy becasue the house does not have this feature  
    - Outliers' effect the means greatly. 
- - Target collumn ```SalePrice``` is not in a normal disturbation. 
- - Data that are highly correlated (such as ```TotRmsAbvGrd``` and ```GrLivArea```)have repeted impact on the model  
+ - Target collumn ```'SalePrice'``` is not in a normal disturbation. 
+ - Data that are highly correlated have repeted impact on the model  
 ### **Data Processing 2:**  
- - One hot encoded all catergical
+ - One hot encoded all catergical features
  - Normoralized ```SalePrice``` distrubition to normal curve by taking  
  ```python
 train['LogSalePrice'] = np.log(train['SalePrice'])
@@ -26,10 +28,18 @@ train['SalePrice'] = np.exp(train['LogSalePrice'])
  ```
    to return to orignal distuibition
  - Reomved one feature from each set of features that have a corlation above 0.8, base on the disturbition graph. 
- ![](https://raw.githubusercontent.com/Beepbloop/KaggleHouse/master/NumericalDataDisturbitionGraph.png)The feature that have the highest corlation with ```SalePrice``` out of the two is removed. 
+ ![](https://raw.githubusercontent.com/Beepbloop/KaggleHouse/master/NumericalDataDisturbitionGraph.png)The feature that have the highest corlation with ```'SalePrice'``` out of the two is removed. 
  - Fill all numerical feature Nan with 0
-### **Data Processing 2:**  
-*All creddit of this methods gose to [Golden](https://www.kaggle.com/goldens)'s [notebook](https://www.kaggle.com/goldens/house-prices-on-the-top-with-a-simple-model)*
+### **Data Processing 3:**  
+*All creddit of this methods gose to [@Golden](https://www.kaggle.com/goldens) and her [notebook](https://www.kaggle.com/goldens/house-prices-on-the-top-with-a-simple-model)*  
+ - Filled all numerical ```Nan``` with 0. 
+ - Filled all categorical ```Nan``` with ```'None'```. 
+ - Removed outliers recomended by author: 
+ ```python
+ train = train[train['GrLivArea']<4000]
+ ```
+ - Normoralized ```SalePrice``` 
+ - One hot encoded all catergical features
 
 ## Model Approchs  
 ### **Linear Regression:**  
@@ -43,5 +53,39 @@ train['SalePrice'] = np.exp(train['LogSalePrice'])
    - Datas from 1: **0.24922**
    - Datas from 3: **0.31011**
 ### **Neural Network:**  
- - Use 
- 
+ - Implemented RMSE for both the default ```'SalePrice'``` and ```'LogSalePrice'```: 
+ ```python
+ def root_mean_squared_error(y_true, y_pred):
+        return K.sqrt(K.mean(K.square(y_pred - y_true)))
+ def exp_root_mean_squared_error(y_true, y_pred):
+    return K.sqrt(K.mean(K.square(K.exp(y_pred)-K.exp(y_true))))
+ ```
+ - Established bsae line model: 
+ ```_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+dense_1 (Dense)              (None, 512)               207872    
+_________________________________________________________________
+re_lu_1 (ReLU)               (None, 512)               0         
+_________________________________________________________________
+dense_2 (Dense)              (None, 512)               262656    
+_________________________________________________________________
+re_lu_2 (ReLU)               (None, 512)               0         
+_________________________________________________________________
+dense_3 (Dense)              (None, 512)               262656    
+_________________________________________________________________
+re_lu_3 (ReLU)               (None, 512)               0         
+_________________________________________________________________
+dense_4 (Dense)              (None, 1)                 513       
+=================================================================
+Total params: 733,697
+Trainable params: 733,697
+Non-trainable params: 0
+_________________________________________________________________
+```
+   - 3 layers of 512 Dense ReLU neurons and one output neuron. 
+   - Train untile ```'val_loss'``` stop increasing for 50 epochs. 
+   - Default ```'adam'``` optimizer.  
+   - RMSE ```root_mean_squared_error``` as loss. 
+   - Score 0.21801
+ - 
