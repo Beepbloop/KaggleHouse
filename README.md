@@ -87,5 +87,28 @@ _________________________________________________________________
    - Train untile ```'val_loss'``` stop increasing for 50 epochs. 
    - Default ```'adam'``` optimizer.  
    - RMSE ```root_mean_squared_error``` as loss. 
-   - Score 0.21801
- - 
+### Attempts:
+ - Structurs:
+   - Increase / Decrease neuron number of each layer
+   - Increase / Decrease depths of the network
+ - Activitation functions:
+   - Sigmoid
+   - Default LeakyReLU  ```alpha = 0.1```
+   - LeakyReLU ```alpha = 0.5```
+ - Optimizers:
+   - Adam with increas / decrease learning rates
+   - Default SGD
+ - Datas:
+   - ```'LogSalePrice'``` as Y
+### Result:  
+**Base Line Score: 0.21801**
+ - Structurs：
+   - Increasing model size and num of neurons resulted in the exact same score,
+   - Decreasing it result in decrease of loss
+ - Activitation functions:
+   - Sigmoid did not converge with in 10000 epochs. 
+   - Default LeakyReLU resulted in slightly better score: **0.21259**
+   - LeakyReLU with alpha = 0.5 performed less then default, scored: **0.21337**  
+ - Optimizer:
+ 
+   
