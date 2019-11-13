@@ -1,13 +1,15 @@
-# Kaggle: [House Price Prediction](https://www.kaggle.com/c/house-prices-advanced-regression-techniques)  
+# Kaggle: [House Price Prediction](https://www.kaggle.com/c/house-prices-advanced-regression-techniques)
+
 ---
-# Data Processing and Feature Extration Approchs  
+# Data Processing and Feature Extration Approchs
+---
 ## **Trial 1:**  
  - Droped ```'Id'```.
  - One hot encoded all none neumerical features.  
  - Replace all none neumerical features ```Nan``` with ```'None'``` and one hot encoded them.  
  - Filled all neumerical data ```Nan``` with means of the column.  
  - Schewed Year data to be base on the minium of that column.  
-### **Problems:**  
+#### **Problems:**  
  - Data contains outliers.  
  - Some numerical features are catergical.   
  - Fill numerical data with means is not a good approch because:  
@@ -15,7 +17,7 @@
    - Outliers' effect the means greatly. 
  - Target collumn ```'SalePrice'``` is not in a normal disturbation. 
  - Data that are highly correlated have repeted impact on the model.  
-### **Trial 2:**  
+## **Trial 2:**  
  - One hot encoded all catergical features.  
  - Normoralized ```SalePrice``` distrubition to normal curve by taking.  
  ```python
@@ -29,7 +31,7 @@ train['SalePrice'] = np.exp(train['LogSalePrice'])
  - Reomved one feature from each set of features that have a corlation above 0.8, base on the disturbition graph.  
  ![](https://raw.githubusercontent.com/Beepbloop/KaggleHouse/master/NumericalDataDisturbitionGraph.png)The feature that have the highest corlation with ```'SalePrice'``` out of the two is removed.  
  - Fill all numerical feature Nan with 0.  
-### **Trial 3:**  
+## **Trial 3:**  
 *All creddit of this methods gose to [@Golden](https://www.kaggle.com/goldens) and her [notebook](https://www.kaggle.com/goldens/house-prices-on-the-top-with-a-simple-model)*  
  - Filled all numerical ```Nan``` with 0.  
  - Filled all categorical ```Nan``` with ```'None'```.  
@@ -39,8 +41,11 @@ train['SalePrice'] = np.exp(train['LogSalePrice'])
  ```
  - Normoralized ```SalePrice```.  
  - One hot encoded all catergical features.  
+ 
+ 
 ---
 # Model Approchs  
+---
 ## **Linear Regression:**  
  - Used hyperparameter tuning to tune a sklearn linear regression model. 
  - Used polynomial features to expand feature space.
@@ -87,7 +92,7 @@ _________________________________________________________________
    - Train untile ```'val_loss'``` stop increasing for 50 epochs.  
    - Default ```'adam'``` optimizer.   
    - RMSE ```root_mean_squared_error``` as loss.  
-### Attempts:
+#### Attempts:
  - Structurs:
    - Increase / Decrease neuron number of each layer.  
    - Increase / Decrease depths of the network.  
@@ -98,7 +103,7 @@ _________________________________________________________________
  - Optimizers:
    - Adam with increas / decrease learning rates.  
    - Default SGD.  
-### Result:  
+#### Result:  
  - **Base Line Score: 0.21801**.  
  - Structurs：
    - Increasing model size and num of neurons resulted in the exact same score.  
@@ -118,15 +123,18 @@ _________________________________________________________________
 *This approch is build upon [@Golden](https://www.kaggle.com/goldens)'s [notebook](https://www.kaggle.com/goldens/house-prices-on-the-top-with-a-simple-model).*  
  - Used hyperparameter to turn a Lasso Regression model.  
  - Golden's Parameter.  
-### Result: 
+#### Result: 
  - Golden's Score: **0.11888**.  
  - Hyper tuned best parameters.  
  ```python
  Lasso(alpha = 0.0005, fit_intercept = True, normalize = False)
  ```
    - Score: **0.11744**.  
+   
+   
 ---
 # Conclusion  
+---
  - Neural Network is not an all-powerful solution.
  - Better data cleaning and feature engineering with a simple model could result in a much better model then neural networks can be. 
  - The complexity of this data is manageable by humans, thus careful data cleaning and feature engineering should be done. 
