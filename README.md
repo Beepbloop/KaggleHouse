@@ -117,13 +117,13 @@ _________________________________________________________________
  - Golden's Parameter
 ### Result: 
  - Golden's Score: **0.11888**
- - Hyper tuned best paramete 
+ - Hyper tuned best parameters
  ```python
  Lasso(alpha = 0.0005, fit_intercept = True, normalize = False)
  ```
    - Score: **0.11744**
-# Conlousion  
- - Neural Network is not a all powerfull solution.
- - Better data cleaning and feature engineering with a simple model could result in a much better model then neural network can be. 
- - The complexity of this data is manageable by human, thus carefull data cleaning and feature engineering should be done. 
- - Traditional approch should be consider first before deep learning in this types of data.  
+# Conclusion  
+ - Neural Network is not an all-powerful solution.
+ - Better data cleaning and feature engineering with a simple model could result in a much better model then neural networks can be. 
+ - The complexity of this data is manageable by humans, thus careful data cleaning and feature engineering should be done. 
+ - Traditional approach should be considered first before deep learning in these types of data.  
