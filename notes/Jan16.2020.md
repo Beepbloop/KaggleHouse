@@ -23,7 +23,27 @@
   - Bnk/Low/HLS < Lvl
 - ```Utilities```
   - ```NoSeWa``` < ```AllPub```
+- ```LandSlope```
+  - ```Sev``` (Severe) < ```Mod```(Moderate) < ```Gtl```(Gentle) 
+- ```BldgType```
+  - ```TwnhsI``` < ```TwnhsE``` < ```Duplx``` < ```2FmCon``` < ```1Fam```
+- ```HouseStyle```
+  - ```1Story``` < ```1.5Unf``` < ```1.5Fin``` < ```2Story```/```SFoyer```(Debatable) < ```2.5Unf``` < ```2.5Fin```
+
 ### Nominal Categorical
+- ```Condition1```, ```Condition2```
+  - ```['Norm','Feedr','PosN','Artery','RRAe','RRNn','RRAn','PosA','RRNe']```
+  - 9 Uniques
+- ```RoofStyle```
+  - 6 Uniques
+- ```RoofMatl```
+  - 8 Uniques
+- ```Exterior1st```, ```Exterior2nd```
+  - ```['VinylSd','MetalSd','Wd Shng','HdBoard','Plywood','Wd Sdng','CmentBd','BrkFace','Stucco','AsbShng','Brk Cmn','ImStucc','AsphShn','Stone','Other','CBlock']```
+  - 16 Uniques
+- ```MasVnrType```
+  - 5 Uniques
+- 
 
 ## To-Do List:
 - [ ] Draw a new corlation graph, where the distrubition is not skewed twords rows that have ```Alley``` and ```FireplaceQu```
@@ -31,3 +51,6 @@
 - [ ] Encode ```FireplaceQu``` with number
 - [ ] Unskew ```SalePrice``` with log
 - [ ] Encode
+- [ ] Mean Code: 
+  - [ ] ```YearBuilt```
+  - [ ] ```YearRemodAdd```
