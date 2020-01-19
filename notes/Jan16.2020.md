@@ -1,4 +1,4 @@
-# Notes 1/16,17/2020
+# Notes 1/16/2020-1/19/2020
 
 ## Finding:
  - ```Alley``` have a 93.77% and 92.67% missing rate in train and test sets. 
@@ -29,6 +29,18 @@
   - ```TwnhsI``` < ```TwnhsE``` < ```Duplx``` < ```2FmCon``` < ```1Fam```
 - ```HouseStyle```
   - ```1Story``` < ```1.5Unf``` < ```1.5Fin``` < ```2Story```/```SFoyer```(Debatable) < ```2.5Unf``` < ```2.5Fin```
+- ```ExterQual```
+  - ```Fa``` < ```TA``` < ```Gd``` < ```Ex```
+- ```ExterCond```
+  - ```Po``` < ```Fa``` < ```TA``` < ```Gd``` < ```Ex```
+- ```BsmtQual```
+  - ```nan``` < ```Fa``` < ```TA``` < ```Gd``` < ```Ex```
+- ```BsmtCond```
+  - ```nan``` < ```Po``` < ```Fa``` < ```TA``` < ```Gd``` < ```Ex```
+- ```BsmtExposure``` - 
+  - ```No```/```nan``` < ```Gd``` < ```Mn``` < ```Av```
+- ```BsmtFinType1``` / ```BsmtFinType2```
+  - ```nan``` < ```Unf``` < ```LwQ``` < ```Rec``` < ```BLQ``` < ```ALQ``` < ```GLQ```
 
 ### Nominal Categorical
 - ```Condition1```, ```Condition2```
@@ -43,7 +55,9 @@
   - 16 Uniques
 - ```MasVnrType```
   - 5 Uniques
-- 
+- ```Foundation```
+  - 6 Uniques
+- ```
 
 ## To-Do List:
 - [ ] Draw a new corlation graph, where the distrubition is not skewed twords rows that have ```Alley``` and ```FireplaceQu```
