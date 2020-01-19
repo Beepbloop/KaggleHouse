@@ -41,6 +41,12 @@
   - ```No```/```nan``` < ```Gd``` < ```Mn``` < ```Av```
 - ```BsmtFinType1``` / ```BsmtFinType2```
   - ```nan``` < ```Unf``` < ```LwQ``` < ```Rec``` < ```BLQ``` < ```ALQ``` < ```GLQ```
+- ```HeatingQC```
+  - ```Po``` < ```Fa``` < ```TA``` < ```Gd``` < ```Ex```
+- ```Functional```
+  - ```Sev``` < ```Maj2``` < ```Maj1``` < ```Mod``` < ```Min2``` < ```Min1``` < ```Typ```
+- ```GarageType```
+  - ```nan``` < ```Detchd``` < ```CarPort``` < ```BuiltIn``` < ```Basment``` < ```Attchd``` < ```2Types```
 
 ### Nominal Categorical
 - ```Condition1```, ```Condition2```
@@ -57,7 +63,13 @@
   - 5 Uniques
 - ```Foundation```
   - 6 Uniques
-- ```
+- ```HeatingUnique```
+  - 6 Uniques
+- ```CentralAir```
+  - True / False
+- ```Electrical```
+  - 6 Uniques
+
 
 ## To-Do List:
 - [ ] Draw a new corlation graph, where the distrubition is not skewed twords rows that have ```Alley``` and ```FireplaceQu```
