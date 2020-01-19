@@ -1,8 +1,6 @@
 # Kaggle: [House Price Prediction](https://www.kaggle.com/c/house-prices-advanced-regression-techniques)
 
----
 # Data Processing and Feature Extration Approchs
----
 ## **Trial 1:**  
  - Droped ```'Id'```.
  - One hot encoded all none neumerical features.  
