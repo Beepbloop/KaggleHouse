@@ -47,6 +47,17 @@
   - ```Sev``` < ```Maj2``` < ```Maj1``` < ```Mod``` < ```Min2``` < ```Min1``` < ```Typ```
 - ```GarageType```
   - ```nan``` < ```Detchd``` < ```CarPort``` < ```BuiltIn``` < ```Basment``` < ```Attchd``` < ```2Types```
+- ```GarageFinish```
+  - ```nan``` < ```Unf``` < ```RFn``` < ```Fin```
+- ```GarageQual```
+  - ```nan``` < ```Po``` < ```Fa``` < ```TA``` < ```Gd``` < ```Ex```
+- ```GarageCond```
+  - ```nan``` < ```Po``` < ```Fa``` < ```TA``` < ```Gd``` < ```Ex```
+- ```PavedDrive```
+  - ```N``` < ```P``` < ```Y```
+- ```PoolQC```
+  - ```nan``` < ```Fa``` < ```Gd``` < ```Ex```
+- ```
 
 ### Nominal Categorical
 - ```Condition1```, ```Condition2```
@@ -69,7 +80,10 @@
   - True / False
 - ```Electrical```
   - 6 Uniques
-
+- ```SaleType```
+  - 9 Uniques
+- ```SaleCondition```
+  - 6 Uniques
 
 ## To-Do List:
 - [ ] Draw a new corlation graph, where the distrubition is not skewed twords rows that have ```Alley``` and ```FireplaceQu```
@@ -80,3 +94,5 @@
 - [ ] Mean Code: 
   - [ ] ```YearBuilt```
   - [ ] ```YearRemodAdd```
+  - [ ] ```GarageYrBlt```
+  - [ ] ```YrSold```
