@@ -58,7 +58,7 @@
 - ```PoolQC```
   - ```nan``` < ```Fa``` < ```Gd``` < ```Ex```    
 
-***Since there are alot of category with label ```[nan, 'Po', 'Fa','TA','Gd','Ex']```, it can proberly be simplified in to a single function (Eventho for some columns are missing some values).***
+***Since there are alot of category with label ***```[nan, 'Po', 'Fa','TA','Gd','Ex']```***, it can proberly be simplified in to a single function (Eventho for some columns are missing some values).***
 
 ### Nominal Categorical
 - ```Condition1```, ```Condition2```
