@@ -88,12 +88,12 @@
 
 ## To-Do List:
 - [ ] Draw a new corlation graph, where the distrubition is not skewed twords rows that have ```Alley``` and ```FireplaceQu```
-- [ ] Drop ```Alley```
-- [ ] Unskew ```SalePrice``` with log
-- [ ] Encode
-- [ ] Mean Code: 
-  - [ ] ```YearBuilt```
-  - [ ] ```YearRemodAdd```
-  - [ ] ```GarageYrBlt```
-  - [ ] ```YrSold```
+- [X] Drop ```Alley```
+- [X] Unskew ```SalePrice``` with log
+- [X] Encode
+- [X] Mean Code: 
+  - [X] ```YearBuilt```
+  - [X] ```YearRemodAdd```
+  - [X] ```GarageYrBlt```
+  - [X] ```YrSold```
 - [X] ```LotFrontage``` Fill ```nan``` with 0
