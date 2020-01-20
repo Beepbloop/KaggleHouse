@@ -56,8 +56,9 @@
 - ```PavedDrive```
   - ```N``` < ```P``` < ```Y```
 - ```PoolQC```
-  - ```nan``` < ```Fa``` < ```Gd``` < ```Ex```
-- ```
+  - ```nan``` < ```Fa``` < ```Gd``` < ```Ex```    
+
+***Since there are alot of category with label ```[nan, 'Po', 'Fa','TA','Gd','Ex']```, it can proberly be simplified in to a single function (Eventho for some columns are missing some values).***
 
 ### Nominal Categorical
 - ```Condition1```, ```Condition2```
@@ -88,7 +89,6 @@
 ## To-Do List:
 - [ ] Draw a new corlation graph, where the distrubition is not skewed twords rows that have ```Alley``` and ```FireplaceQu```
 - [ ] Drop ```Alley```
-- [ ] Encode ```FireplaceQu``` with number
 - [ ] Unskew ```SalePrice``` with log
 - [ ] Encode
 - [ ] Mean Code: 
